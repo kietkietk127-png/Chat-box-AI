@@ -36,8 +36,9 @@
 </div>
 
 <script>
-    const part1 = "AQ.Ab8RN6IFojxjH1Hi8c";
-    const part2 = "NPF0V48cNs_4pH2cJC13yEodW63NLpDw";
+    // API Key đã được chia đôi chuẩn xác
+    const part1 = "AQ.Ab8RN6LSW5VVItf02beSbluvaDXhEE";
+    const part2 = "DFdEHEKYTp-YYOggVEcw";
     const API_KEY = part1 + part2;
 
     let recognition = null;
@@ -137,32 +138,4 @@
 
             const data = await response.json();
             
-            if (data.candidates && data.candidates[0].content.parts[0].text) {
-                const aiReply = data.candidates[0].content.parts[0].text;
-                textSpan.textContent = aiReply;
-
-                const speakButton = document.createElement('button');
-                speakButton.className = 'speak-btn';
-                speakButton.textContent = '🔊 Nghe giọng đọc';
-                speakButton.onclick = () => speakText(aiReply);
-                aiMessageDiv.appendChild(speakButton);
-
-                speakText(aiReply);
-            } else {
-                textSpan.textContent = "Xin lỗi, đã có lỗi phản hồi từ AI.";
-            }
-        } catch (error) {
-            console.error(error);
-            textSpan.textContent = "Không thể kết nối đến máy chủ AI.";
-        }
-        
-        chatBox.scrollTop = chatBox.scrollHeight;
-    }
-
-    function escapeHtml(text) {
-        return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    }
-</script>
-
-</body>
-</html>
+            if (data.candidates && data.candidates[0].content.parts[0].text
